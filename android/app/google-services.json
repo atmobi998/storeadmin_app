@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "995078158421",
+    "project_id": "storeadminapp",
+    "storage_bucket": "storeadminapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995078158421:android:d8355b92ddf251a0ff3cdc",
+        "android_client_info": {
+          "package_name": "com.atcmobile.storeadmin_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995078158421-7n4r37h9f5v7p5b33sacalg3e7mtpvaj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNWj7GpUrjNyDnVDGvXrpQyG5ksptBpE0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995078158421-7n4r37h9f5v7p5b33sacalg3e7mtpvaj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,3 @@
+
+const String appbuildmode = 'Testing';
+

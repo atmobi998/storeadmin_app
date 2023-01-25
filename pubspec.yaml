@@ -1,0 +1,74 @@
+name: shopadmin_app
+description: ATC Store Admin
+
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.5.9+5639
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter     
+
+  cupertino_icons: ^0.1.3
+  google_maps_flutter: ^2.0.11
+  google_maps_webservice: ^0.0.19
+  flutter_svg: ^0.23.0+1
+  provider: ^6.0.1
+  http: ^0.13.4
+  image_picker: 0.8.4+3
+  flutter_barcode_scanner: 
+      path: ../custom_pkgs/flutter_barcode_scanner
+  barcode_widget:
+      path: ../custom_pkgs/barcode_widget
+  geolocator: ^7.7.1
+  # geocoder:
+  #    path: ../custom_pkgs/flutter_geocoder
+  flutter_google_places:
+      path: ../custom_pkgs/flutter_google_places-0.3.0
+  flutter_polyline_points: 
+      path: ../custom_pkgs/flutter_polyline_points-1.0.0
+  flutter_keychain: 
+      path: ../custom_pkgs/flutter_keychain-2.1.0
+  firebase_phone_auth_handler:
+      path: ../custom_pkgs/firebase_phone_auth_handler-0.0.8
+  printing: ^5.6.0
+  sized_context: ^1.0.0+1
+  slugify: ^2.0.0
+  # latlong: ^0.6.1
+  country_picker: ^2.0.8
+  intl: ^0.17.0
+  url_launcher: ^6.0.12
+  new_virtual_keyboard: ^0.1.4
+  audiofileplayer: 
+      path: ../custom_pkgs/audiofileplayer
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
+  generate: true 
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/open-sans/OpenSans-Regular.ttf
+        - asset: assets/fonts/open-sans/OpenSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/open-sans/OpenSans-Light.ttf
+          weight: 300
+
+
