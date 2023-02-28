@@ -18,13 +18,13 @@ class DefaultButton extends StatelessWidget {
       height: getProportionateScreenHeight(60),
       child: TextButton(
         style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(5)),
+          padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(5)),
           foregroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
           backgroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(getProportionateScreenWidth(22)),
-              side: BorderSide(color: kPrimaryColor)
+              side: const BorderSide(color: kPrimaryColor)
             )
           )
         ),        
@@ -57,13 +57,13 @@ class DefButton150 extends StatelessWidget {
       height: getProportionateScreenHeight(60),
       child: TextButton(
         style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(5)),
+          padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(5)),
           foregroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
           backgroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(getProportionateScreenWidth(22)),
-              side: BorderSide(color: kPrimaryColor)
+              side: const BorderSide(color: kPrimaryColor)
             )
           )
         ),        
@@ -96,7 +96,7 @@ class GreyButton extends StatelessWidget {
       height: getProportionateScreenHeight(50),
       child: TextButton(
         style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(5)),
+          padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(5)),
           foregroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey[500]!),
           backgroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey[500]!),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(

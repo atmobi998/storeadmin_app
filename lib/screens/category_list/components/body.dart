@@ -12,7 +12,7 @@ import 'package:shopadmin_app/size_config.dart';
 import 'dart:typed_data';
 // import 'package:pdf/widgets.dart' as pw;
 // import 'package:printing/printing.dart';
-import 'package:audiofileplayer/audiofileplayer.dart';
+// import 'package:audiofileplayer/audiofileplayer.dart';
 
 
 class CategoriesListBody extends StatefulWidget {
@@ -114,7 +114,7 @@ class _CategoriesListBody extends State<CategoriesListBody> with AfterLayoutMixi
   }
 
   playBeepSound() {
-    Audio.load('assets/sounds/beep-read-02.mp3')..play()..dispose();
+    // Audio.load('assets/sounds/beep-read-02.mp3')..play()..dispose();
   }
 
   readLogoPdf() async {

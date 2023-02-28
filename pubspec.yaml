@@ -17,6 +17,7 @@ dependencies:
   cupertino_icons: ^0.1.3
   google_maps_flutter: ^2.0.11
   google_maps_webservice: ^0.0.19
+  google_api_headers: ^1.5.0+1
   flutter_svg: ^0.23.0+1
   provider: ^6.0.1
   http: ^0.13.4
@@ -32,8 +33,8 @@ dependencies:
       path: ../custom_pkgs/flutter_google_places-0.3.0
   flutter_polyline_points: 
       path: ../custom_pkgs/flutter_polyline_points-1.0.0
-  flutter_keychain: 
-      path: ../custom_pkgs/flutter_keychain-2.1.0
+  flutter_keychain: ^2.2.1
+  #    path: ../custom_pkgs/flutter_keychain-2.1.0
   firebase_phone_auth_handler:
       path: ../custom_pkgs/firebase_phone_auth_handler-0.0.8
   printing: ^5.6.0
@@ -45,7 +46,7 @@ dependencies:
   url_launcher: ^6.0.12
   new_virtual_keyboard: ^0.1.4
   audiofileplayer: 
-      path: ../custom_pkgs/audiofileplayer
+     path: ../custom_pkgs/audiofileplayer
 
 
 dev_dependencies:

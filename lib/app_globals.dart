@@ -55,28 +55,28 @@ bool curusrIsFrontSt = true;
 var admcurprodsearch = '' ; 
 var admcurcatsearch = '' ; 
 var admcurstrusrsearch = '' ; 
-var admcurstrusrsessid;
-final posCcy = new NumberFormat("#,##0.0", "en_US");
+var admcurstrusrsessid = 0;
+final posCcy = NumberFormat("#,##0.0", "en_US");
 var emailphoneTxtCtrl =  TextEditingController();
 var passwordTxtCtrl =  TextEditingController();
 var verifypassTxtCtrl =  TextEditingController();
 Codec<String, String> stringToBase64 = utf8.fuse(base64);
 DateFormat dateDbFormat = DateFormat("yyyy-MM-dd HH:mm:ss");
 
-LatLng curlatlng = new LatLng(double.tryParse('0.0')!,double.tryParse('0.0')!) ;
-LatLng newlatlng = new LatLng(double.tryParse('0.0')!,double.tryParse('0.0')!) ;
-LatLng storelatlng = new LatLng(double.tryParse('0.0')!,double.tryParse('0.0')!) ;
-LatLng curusrpos = new LatLng(double.tryParse('0.0')!,double.tryParse('0.0')!) ;
+LatLng curlatlng = LatLng(double.tryParse('0.0')!,double.tryParse('0.0')!) ;
+LatLng newlatlng = LatLng(double.tryParse('0.0')!,double.tryParse('0.0')!) ;
+LatLng storelatlng = LatLng(double.tryParse('0.0')!,double.tryParse('0.0')!) ;
+LatLng curusrpos = LatLng(double.tryParse('0.0')!,double.tryParse('0.0')!) ;
 CameraPosition storecamerapos = CameraPosition(target: curlatlng,zoom: 14,);
 Position curposition = Position(longitude: curlatlng.longitude,latitude: curlatlng.latitude,timestamp: DateTime.now(),accuracy:0.0,altitude:0.0,heading:0.0,speed:0.0,speedAccuracy:0.0,floor:1,isMocked:true);
 
 List<AtcProfile> reguser = [];
-var regstore ;
+var regstore = {};
 bool needVerify = false;
 bool needFBaseVerify = false;
 
-AlertDialog doingapialert = AlertDialog(content: new Row(children: [CircularProgressIndicator(),Container(margin: EdgeInsets.only(left: 5),child:Text("Loading data" ))]));
-AlertDialog loginapialert = AlertDialog(content: new Row(children: [CircularProgressIndicator(),Container(margin: EdgeInsets.only(left: 5),child:Text("Sign in into Store Admin" ))]));
+AlertDialog doingapialert = AlertDialog(content: Row(children: [const CircularProgressIndicator(),Container(margin: const EdgeInsets.only(left: 5),child:const Text("Loading data" ))]));
+AlertDialog loginapialert = AlertDialog(content: Row(children: [const CircularProgressIndicator(),Container(margin: const EdgeInsets.only(left: 5),child:const Text("Sign in into Store Admin" ))]));
 
 showLoginDialog(BuildContext context){
   AlertDialog alert=loginapialert;
@@ -106,8 +106,7 @@ mixin AfterLayoutMixin<T extends StatefulWidget> on State<T> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!
-        .addPostFrameCallback((_) => afterFirstLayout(context));
+    WidgetsBinding.instance.addPostFrameCallback((_) => afterFirstLayout(context));
   }
 
   void afterFirstLayout(BuildContext context);

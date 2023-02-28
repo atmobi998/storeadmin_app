@@ -6,6 +6,8 @@ import 'components/body.dart';
 
 class CategoryAddScreen extends StatelessWidget {
   static String routeName = "/category_add";
+
+  const CategoryAddScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -14,8 +16,8 @@ class CategoryAddScreen extends StatelessWidget {
         title: Text(txtCatNew),
         automaticallyImplyLeading: false,
       ),
-      body: Body(),
-      bottomNavigationBar: BottomNavBarCategoryAdd(selectedMenu: StoreMenuState.none),
+      body: const Body(),
+      bottomNavigationBar: const BottomNavBarCategoryAdd(selectedMenu: StoreMenuState.none),
     );
   }
 }

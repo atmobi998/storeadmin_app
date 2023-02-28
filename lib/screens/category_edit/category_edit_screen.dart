@@ -6,6 +6,8 @@ import 'components/body.dart';
 
 class CategoryEditScreen extends StatelessWidget {
   static String routeName = "/category_edit";
+
+  const CategoryEditScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -14,8 +16,8 @@ class CategoryEditScreen extends StatelessWidget {
         title: Text(txtCat),
         automaticallyImplyLeading: false,
       ),
-      body: Body(),
-      bottomNavigationBar: BottomNavBarCategoryEdit(selectedMenu: StoreMenuState.none),
+      body: const Body(),
+      bottomNavigationBar: const BottomNavBarCategoryEdit(selectedMenu: StoreMenuState.none),
     );
   }
 }

@@ -19,7 +19,7 @@ final headingStyle = TextStyle(
   color: Colors.black,
   height: 1.5,
 );
-final Color inActiveIconColor = Color(0xFFB6B6B6);
+const Color inActiveIconColor = Color(0xFFB6B6B6);
 const defaultDuration = Duration(milliseconds: 250);
 
 double defInpFormMaxWidth = getProportionateScreenWidth(500);
@@ -97,9 +97,9 @@ bool installedSMS = true;
 
 // Rest URIs
 
-final String mobAppVal = 'storeadmin_app';
-final String imagehost = (appbuildmode == 'Release')? 'https://metroeconomics.com/' : 'http://metroeconomics.com/';
-final String kapihost = (appbuildmode == 'Release')? 'https://metroeconomics.com/'  : 'http://metroeconomics.com/';
+const String mobAppVal = 'storeadmin_app';
+const String imagehost = (appbuildmode == 'Release')? 'https://metroeconomics.com/' : 'http://metroeconomics.com/';
+const String kapihost = (appbuildmode == 'Release')? 'https://metroeconomics.com/'  : 'http://metroeconomics.com/';
 
 final Uri loginEndPoint = (appbuildmode == 'Release')? Uri.https("metroeconomics.com", "profile/token") : Uri.http("metroeconomics.com", "profile/token");
 final Uri registerEndPoint = (appbuildmode == 'Release') ? Uri.https("metroeconomics.com", "profile/register") : Uri.http("metroeconomics.com", "profile/register");
@@ -134,6 +134,6 @@ final otpInputDecoration = InputDecoration(
 OutlineInputBorder outlineInputBorder() {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),
-    borderSide: BorderSide(color: kTextColor),
+    borderSide: const BorderSide(color: kTextColor),
   );
 }

@@ -15,6 +15,8 @@ import 'package:shopadmin_app/screens/category_edit/category_edit_screen.dart';
 import 'package:shopadmin_app/size_config.dart';
 
 class CategoryAddForm extends StatefulWidget {
+  const CategoryAddForm({Key? key}) : super(key: key);
+
 
   @override
   _CategoryAddFormState createState() => _CategoryAddFormState();
@@ -73,7 +75,7 @@ class _CategoryAddFormState extends State<CategoryAddForm> {
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
               buildCatSortFormField(),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
-              Text(poststatus, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
+              Text(poststatus, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
               FormError(errors: errors),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
@@ -113,11 +115,11 @@ class _CategoryAddFormState extends State<CategoryAddForm> {
         ),
         child: CheckboxListTile(
           activeColor: Theme.of(context).colorScheme.secondary,
-          title: Text('Active'),
+          title: const Text('Active'),
           value: curcatactive,
           onChanged: (value) => setStatusA(value!),
           subtitle: !curcatactive
-            ? Padding(
+            ? const Padding(
                 padding: EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
                 child: Text('Check to change to active', style: TextStyle(color: Color(0xFFe53935), fontSize: 12),),)
             : null,
@@ -136,10 +138,10 @@ class _CategoryAddFormState extends State<CategoryAddForm> {
     setStatus(txtSavingCat);
     var postdata = {
         "store_id": "$admcurstoreid",
-        "name" : (catname.isNotEmpty) ? '$catname' : '',
-        "slug" : (catslug.isNotEmpty) ? '$catslug' : '', 
-        "description" : (catdesc.isNotEmpty) ? '$catdesc' : '', 
-        "sort" : (catsort.isNotEmpty) ? '$catsort' : '0', 
+        "name" : (catname.isNotEmpty) ? catname : '',
+        "slug" : (catslug.isNotEmpty) ? catslug : '', 
+        "description" : (catdesc.isNotEmpty) ? catdesc : '', 
+        "sort" : (catsort.isNotEmpty) ? catsort : '0', 
         "active" : '1', 
       };
     var posthdr = {
@@ -200,7 +202,7 @@ class _CategoryAddFormState extends State<CategoryAddForm> {
                 removeError(error: kCatNameNullErr);
                 saveCatName(value);
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -209,11 +211,11 @@ class _CategoryAddFormState extends State<CategoryAddForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblCatName,
               hintText: hintCatName,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
             ),
           ),
       ),
@@ -239,7 +241,7 @@ class _CategoryAddFormState extends State<CategoryAddForm> {
               removeError(error: kCatDescNullErr);
               catdesc = value;
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -248,11 +250,11 @@ class _CategoryAddFormState extends State<CategoryAddForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblCatDesc,
             hintText: hintCatDesc,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
           ),
           initialValue: catdesc,
         ),
@@ -281,7 +283,7 @@ class _CategoryAddFormState extends State<CategoryAddForm> {
                 removeError(error: kCatSlugNullErr);
                 catslug = value;
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -290,11 +292,11 @@ class _CategoryAddFormState extends State<CategoryAddForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblCatSlug,
               hintText: hintCatSlug,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
             ),
           ),
       ),
@@ -320,7 +322,7 @@ class _CategoryAddFormState extends State<CategoryAddForm> {
                 removeError(error: kCatSortNullErr);
                 catsort = value;
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -329,11 +331,11 @@ class _CategoryAddFormState extends State<CategoryAddForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblCatSort,
               hintText: hintCatSort,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/sort-numeric-down.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/sort-numeric-down.svg"),
             ),
           ),
       ),

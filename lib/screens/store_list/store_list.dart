@@ -11,7 +11,7 @@ import 'package:shopadmin_app/strconsts.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:audiofileplayer/audiofileplayer.dart';
+// import 'package:audiofileplayer/audiofileplayer.dart';
 
 
 class StoresListView extends StatefulWidget {
@@ -65,7 +65,7 @@ class StoresListView extends StatefulWidget {
   }
 
   playBeepSound() {
-    Audio.load('assets/sounds/beep-read-02.mp3')..play()..dispose();
+    // Audio.load('assets/sounds/beep-read-02.mp3')..play()..dispose();
   }
 
   readLogoPdf() async {

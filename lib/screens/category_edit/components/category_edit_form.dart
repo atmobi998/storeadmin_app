@@ -14,6 +14,8 @@ import 'package:shopadmin_app/strconsts.dart';
 import 'package:shopadmin_app/size_config.dart';
 
 class CategoryEditForm extends StatefulWidget {
+  const CategoryEditForm({Key? key}) : super(key: key);
+
   @override
   _CategoryEditFormState createState() => _CategoryEditFormState();
 }
@@ -72,7 +74,7 @@ class _CategoryEditFormState extends State<CategoryEditForm> {
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
                 buildActiveFormField(),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
-                Text(poststatus, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
+                Text(poststatus, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
                 FormError(errors: errors),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
@@ -116,8 +118,8 @@ class _CategoryEditFormState extends State<CategoryEditForm> {
           onChanged: (value) => setStatusA(value!),
           subtitle: !curcatactive
             ? Padding(
-                padding: EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
-                child: Text(txtChkActive, style: TextStyle(color: Color(0xFFe53935), fontSize: 12),),)
+                padding: const EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
+                child: Text(txtChkActive, style: const TextStyle(color: Color(0xFFe53935), fontSize: 12),),)
             : null,
         ),
       ),
@@ -134,10 +136,10 @@ class _CategoryEditFormState extends State<CategoryEditForm> {
     setStatus(txtSavingCat);
     var postdata = {
         "id": (admcurcat.isNotEmpty)? "${admcurcat.first.id}" : 0,
-        "name" : (catname.isNotEmpty)? '$catname' : '',
-        "slug" : (catslug.isNotEmpty)? '$catslug' : '', 
-        "description" : (catdesc.isNotEmpty) ? '$catdesc' : '', 
-        "sort" : (catsort.isNotEmpty) ? '$catsort' : '', 
+        "name" : (catname.isNotEmpty)? catname : '',
+        "slug" : (catslug.isNotEmpty)? catslug : '', 
+        "description" : (catdesc.isNotEmpty) ? catdesc : '', 
+        "sort" : (catsort.isNotEmpty) ? catsort : '', 
         "active" : (curcatactive)? '1' : '0', 
       };
     var posthdr = {
@@ -197,7 +199,7 @@ class _CategoryEditFormState extends State<CategoryEditForm> {
               removeError(error: kCatNameNullErr);
               saveCatName(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -206,11 +208,11 @@ class _CategoryEditFormState extends State<CategoryEditForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblCatName,
             hintText: hintCatName,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
           ),
           initialValue: catname,
         ),
@@ -237,7 +239,7 @@ class _CategoryEditFormState extends State<CategoryEditForm> {
               removeError(error: kCatDescNullErr);
               catdesc = value;
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -246,11 +248,11 @@ class _CategoryEditFormState extends State<CategoryEditForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblCatDesc,
             hintText: hintCatDesc,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
           ),
           initialValue: catdesc,
         ),
@@ -279,7 +281,7 @@ class _CategoryEditFormState extends State<CategoryEditForm> {
               removeError(error: kCatSlugNullErr);
               catslug = value;
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -288,11 +290,11 @@ class _CategoryEditFormState extends State<CategoryEditForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblCatSlug,
             hintText: hintCatSlug,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
           ),
           // initialValue: catslug,
         ),
@@ -319,7 +321,7 @@ class _CategoryEditFormState extends State<CategoryEditForm> {
                 removeError(error: kCatSortNullErr);
                 catsort = value;
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -328,11 +330,11 @@ class _CategoryEditFormState extends State<CategoryEditForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblCatSort,
               hintText: hintCatSort,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/sort-numeric-down.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/sort-numeric-down.svg"),
             ),
             initialValue: catsort,
           ),
