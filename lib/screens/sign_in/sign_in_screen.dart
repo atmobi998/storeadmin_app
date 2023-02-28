@@ -4,6 +4,8 @@ import 'components/body.dart';
 
 class SignInScreen extends StatelessWidget {
   static String routeName = "/sign_in";
+
+  const SignInScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -12,7 +14,7 @@ class SignInScreen extends StatelessWidget {
         title: Text(txtSignIn),
         automaticallyImplyLeading: false,
       ),
-      body: Body(),
+      body: const Body(),
     );
   }
 }

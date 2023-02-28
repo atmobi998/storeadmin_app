@@ -6,6 +6,8 @@ import 'components/body.dart';
 
 class StorePosAddScreen extends StatelessWidget {
   static String routeName = "/storeusr_add";
+
+  const StorePosAddScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -14,8 +16,8 @@ class StorePosAddScreen extends StatelessWidget {
         title: Text(userTitleInfo),
         automaticallyImplyLeading: false,
       ),
-      body: Body(),
-      bottomNavigationBar: BottomNavBarStorePosAdd(selectedMenu: StoreMenuState.none),
+      body: const Body(),
+      bottomNavigationBar: const BottomNavBarStorePosAdd(selectedMenu: StoreMenuState.none),
     );
   }
 }

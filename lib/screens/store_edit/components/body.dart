@@ -5,6 +5,8 @@ import 'package:shopadmin_app/size_config.dart';
 import 'store_edit_form.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -21,7 +23,7 @@ class Body extends StatelessWidget {
                 Text(txtStoreInfo, style: headingStyle),
                 Text(txtFillStoreDetail,textAlign: TextAlign.center,),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
-                StoreEditForm(),
+                const StoreEditForm(),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
               ],
             ),

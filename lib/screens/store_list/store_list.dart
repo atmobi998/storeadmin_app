@@ -1,7 +1,6 @@
 // import 'dart:io';
 import 'dart:convert';
 import 'dart:async';
-import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,6 +14,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 
 class StoresListView extends StatefulWidget {
+  const StoresListView({Key? key}) : super(key: key);
+
 
   @override
   _StoresListView createState() => _StoresListView();
@@ -294,7 +295,7 @@ class StoresListView extends StatefulWidget {
 
   ListTile _tile(int storeid, String title, String subtitle, String logopath, IconData icon) => ListTile(
     title: Text(title,
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: 20,
         )),
@@ -338,7 +339,7 @@ class StoresListView extends StatefulWidget {
         "mobapp" : mobAppVal,
         "qrymode" : "all",
         "store_id" : "$admcurstoreid", 
-        "filter" : "$admcurcatsearch", 
+        "filter" : admcurcatsearch, 
       };
     var posthdr = {
         'Accept': 'application/json',
@@ -386,7 +387,7 @@ class StoresListView extends StatefulWidget {
         "qrymode": 'allbystore',
         "mobapp" : mobAppVal,
         "store_id" : "$admcurstoreid",
-        "filter" : "$admcurprodsearch",
+        "filter" : admcurprodsearch,
       };
     var posthdr = {
         'Accept': 'application/json',

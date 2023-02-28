@@ -12,6 +12,8 @@ import 'package:shopadmin_app/app_globals.dart';
 class StoreLocationScreen extends StatefulWidget {
 
   static String routeName = "/store_loc";
+
+  const StoreLocationScreen({Key? key}) : super(key: key);
   @override
   State<StoreLocationScreen> createState() => StoreLocationScreenState();
 
@@ -19,7 +21,7 @@ class StoreLocationScreen extends StatefulWidget {
 
 class StoreLocationScreenState extends State<StoreLocationScreen> {
 
-  Completer<GoogleMapController> _controller = Completer();
+  final Completer<GoogleMapController> _controller = Completer();
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +55,10 @@ class StoreLocationScreenState extends State<StoreLocationScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: _useNewPosition,
         tooltip: txtGetLoc,
-        child: Icon(Icons.flag),
+        child: const Icon(Icons.flag),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      bottomNavigationBar: BottomNavBarStoreLocation(selectedMenu: StoreMenuState.none),
+      bottomNavigationBar: const BottomNavBarStoreLocation(selectedMenu: StoreMenuState.none),
     );
   }
 
@@ -74,7 +76,7 @@ class StoreLocationScreenState extends State<StoreLocationScreen> {
     setState(() {
       newlatlng  = destination;
     });
-    Future.delayed(Duration(seconds: 2), () async {
+    Future.delayed(const Duration(seconds: 2), () async {
       GoogleMapController controller = await _controller.future;
       controller.animateCamera(
         CameraUpdate.newCameraPosition(
@@ -96,7 +98,7 @@ class StoreLocationScreenState extends State<StoreLocationScreen> {
               
             },
             draggable: true,
-            markerId: MarkerId("curr_loc"),
+            markerId: const MarkerId("curr_loc"),
             position: tmpmkrlatlng,
             infoWindow: InfoWindow(title: txtStoreLoc),
             onDragEnd: ((newPosition) {
@@ -106,7 +108,7 @@ class StoreLocationScreenState extends State<StoreLocationScreen> {
         _markers[txtStoreLocName] = marker;
       });
 
-      Future.delayed(Duration(seconds: 2), () async {
+      Future.delayed(const Duration(seconds: 2), () async {
         GoogleMapController controller = await _controller.future;
         controller.animateCamera(
           CameraUpdate.newCameraPosition(

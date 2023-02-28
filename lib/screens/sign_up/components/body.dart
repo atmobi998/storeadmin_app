@@ -5,6 +5,8 @@ import 'package:shopadmin_app/size_config.dart';
 import 'sign_up_form.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -24,12 +26,12 @@ class Body extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges20)),
-                SignUpForm(),
+                const SignUpForm(),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges20)),
                 Text(
                   txtAgree,
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges20)),
               ],

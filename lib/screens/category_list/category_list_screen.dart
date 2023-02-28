@@ -16,7 +16,7 @@ class CategoryListScreen extends StatelessWidget {
         title: Text(txtListCats),
         automaticallyImplyLeading: false,
       ),
-      body: CategoriesListBody(),
+      body: const CategoriesListBody(),
       bottomNavigationBar: const BottomNavBarCategoryList(selectedMenu: StoreMenuState.none),
     );
   }

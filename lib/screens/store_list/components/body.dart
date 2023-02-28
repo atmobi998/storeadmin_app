@@ -5,6 +5,8 @@ import 'package:shopadmin_app/strconsts.dart';
 import 'package:shopadmin_app/size_config.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -15,14 +17,14 @@ class Body extends StatelessWidget {
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SingleChildScrollView(
-            physics: ScrollPhysics(),
+            physics: const ScrollPhysics(),
             child: Column(
               children: [
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
                 Text(txtYourStores, style: headingStyle, textAlign: TextAlign.center),
                 Text(txtSelToChgInfo,textAlign: TextAlign.center,),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
-                StoresListView(),
+                const StoresListView(),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
               ],
             ),

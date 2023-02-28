@@ -6,6 +6,8 @@ import 'components/body.dart';
 
 class StoreEditScreen extends StatelessWidget {
   static String routeName = "/store_edit";
+
+  const StoreEditScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -14,8 +16,8 @@ class StoreEditScreen extends StatelessWidget {
         title: Text(txtStoreInfo),
         automaticallyImplyLeading: false,
       ),
-      body: Body(),
-      bottomNavigationBar: BottomNavBarStoreEdit(selectedMenu: StoreMenuState.none),
+      body: const Body(),
+      bottomNavigationBar: const BottomNavBarStoreEdit(selectedMenu: StoreMenuState.none),
     );
   }
 }

@@ -6,6 +6,8 @@ import 'components/body.dart';
 
 class StorePaymentEditScreen extends StatelessWidget {
   static String routeName = "/store_payment_edit";
+
+  const StorePaymentEditScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -14,8 +16,8 @@ class StorePaymentEditScreen extends StatelessWidget {
         title: Text(txtPayProfile),
         automaticallyImplyLeading: false,
       ),
-      body: Body(),
-      bottomNavigationBar: BottomNavBarStorePaymentEdit(selectedMenu: StoreMenuState.none),
+      body: const Body(),
+      bottomNavigationBar: const BottomNavBarStorePaymentEdit(selectedMenu: StoreMenuState.none),
     );
   }
 }

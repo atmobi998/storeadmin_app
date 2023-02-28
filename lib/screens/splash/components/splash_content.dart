@@ -16,7 +16,7 @@ class SplashContent extends StatelessWidget {
     gtextTranslate(context);
     return Column(
       children: <Widget>[
-        Spacer(),
+        const Spacer(),
         Text(
           txtAppName,
           style: TextStyle(
@@ -29,7 +29,7 @@ class SplashContent extends StatelessWidget {
           text,
           textAlign: TextAlign.center,
         ),
-        Spacer(flex: 2),
+        const Spacer(flex: 2),
         Image.asset(
           image,
           height: getProportionateScreenHeight(131),

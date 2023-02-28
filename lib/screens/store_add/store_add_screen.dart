@@ -6,6 +6,8 @@ import 'components/body.dart';
 
 class StoreAddScreen extends StatelessWidget {
   static String routeName = "/store_add";
+
+  const StoreAddScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -14,8 +16,8 @@ class StoreAddScreen extends StatelessWidget {
         title: Text(txtAddNewStore),
         automaticallyImplyLeading: false,
       ),
-      body: Body(),
-      bottomNavigationBar: BottomNavBarStoreAdd(selectedMenu: StoreMenuState.none),
+      body: const Body(),
+      bottomNavigationBar: const BottomNavBarStoreAdd(selectedMenu: StoreMenuState.none),
     );
   }
 }

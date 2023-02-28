@@ -17,7 +17,7 @@ class ProductAddScreen extends StatelessWidget {
         title: Text(txtProdNew),
         automaticallyImplyLeading: false,
       ),
-      body: Body(),
+      body: const Body(),
       bottomNavigationBar: const BottomNavBarProductAdd(selectedMenu: StoreMenuState.none),
     );
   }

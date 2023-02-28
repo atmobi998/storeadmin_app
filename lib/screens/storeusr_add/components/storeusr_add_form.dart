@@ -14,6 +14,8 @@ import 'package:shopadmin_app/strconsts.dart';
 import 'package:shopadmin_app/size_config.dart';
 
 class StoreUserAddForm extends StatefulWidget {
+  const StoreUserAddForm({Key? key}) : super(key: key);
+
 
   @override
   _StoreUserAddFormState createState() => _StoreUserAddFormState();
@@ -22,11 +24,6 @@ class StoreUserAddForm extends StatefulWidget {
 
 class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMixin<StoreUserAddForm> {
   final _formKey = GlobalKey<FormState>();
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   int storeid = (admcurstore.isNotEmpty)? admcurstore.first.id : 0 ;
   String storeCode = (admcurstore.isNotEmpty)? admcurstore.first.storecode : "" ;
@@ -57,8 +54,8 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
   final List<String> errors = [];
   bool pickimg=false;
   final ImagePicker _pickera = ImagePicker();
-  var usrcodeCtler = new TextEditingController();
-  var storecodeCtler = new TextEditingController();
+  var usrcodeCtler = TextEditingController();
+  var storecodeCtler = TextEditingController();
 
   @override
   void afterFirstLayout(BuildContext context) {
@@ -153,7 +150,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
               FormError(errors: errors),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges20)),
-              Text(poststatus, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
+              Text(poststatus, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges20)),
               DefaultButton(
                 text: lblSaveUser,
@@ -204,8 +201,8 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
           onChanged: (value) => setUserActive(value!),
           subtitle: !curusractive
             ? Padding(
-                padding: EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
-                child: Text(txtChkActive, style: TextStyle(color: Color(0xFFe53935), fontSize: getProportionateScreenWidth(12))))
+                padding: const EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
+                child: Text(txtChkActive, style: TextStyle(color: const Color(0xFFe53935), fontSize: getProportionateScreenWidth(12))))
             : null,
         ),
       ),
@@ -241,8 +238,8 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
           onChanged: (value) => setUserIsPos(value!),
           subtitle: !curusrIsPos
             ? Padding(
-                padding: EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
-                child: Text(txtChkIsPos, style: TextStyle(color: Color(0xFFe53935), fontSize: getProportionateScreenWidth(12))))
+                padding: const EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
+                child: Text(txtChkIsPos, style: TextStyle(color: const Color(0xFFe53935), fontSize: getProportionateScreenWidth(12))))
             : null,
         ),
       ),
@@ -278,8 +275,8 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
           onChanged: (value) => setUserIsInv(value!),
           subtitle: !curusrIsInv
             ? Padding(
-                padding: EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
-                child: Text(txtChkIsInv, style: TextStyle(color: Color(0xFFe53935), fontSize: getProportionateScreenWidth(12))))
+                padding: const EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
+                child: Text(txtChkIsInv, style: TextStyle(color: const Color(0xFFe53935), fontSize: getProportionateScreenWidth(12))))
             : null,
         ),
       ),
@@ -315,8 +312,8 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
           onChanged: (value) => setUserIsKitchen(value!),
           subtitle: !curusrIsKitchen
             ? Padding(
-                padding: EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
-                child: Text(txtChkIsKitchen, style: TextStyle(color: Color(0xFFe53935), fontSize: getProportionateScreenWidth(12))))
+                padding: const EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
+                child: Text(txtChkIsKitchen, style: TextStyle(color: const Color(0xFFe53935), fontSize: getProportionateScreenWidth(12))))
             : null,
         ),
       ),
@@ -352,8 +349,8 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
           onChanged: (value) => setUserIsFrontst(value!),
           subtitle: !curusrIsFrontSt
             ? Padding(
-                padding: EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
-                child: Text(txtChkIsFrontst, style: TextStyle(color: Color(0xFFe53935), fontSize: getProportionateScreenWidth(12))))
+                padding: const EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
+                child: Text(txtChkIsFrontst, style: TextStyle(color: const Color(0xFFe53935), fontSize: getProportionateScreenWidth(12))))
             : null,
         ),
       ),
@@ -382,8 +379,8 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
 
   storeUserSaveChanges() {
     setStatus(txtuserSavingInfo);
-    var imgfileName;
-    var newimg;
+    String imgfileName;
+    String newimg;
     if (pickimg) {
       newimg = '1';
       imgfileName = tmpimgFile!.path.split('/').last;
@@ -394,22 +391,22 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
     }
     var postdata = {
         "store_id": "$storeid",
-        "store_code": "$storeCode",
-        "usr_name": "$usrName",
-        "usr_code": "$usrCode",
-        "usr_passcode": "$usrPassCode",
-        "imgfile": "$imgfileName",
+        "store_code": storeCode,
+        "usr_name": usrName,
+        "usr_code": usrCode,
+        "usr_passcode": usrPassCode,
+        "imgfile": imgfileName,
         "staff_img64" : "$base64StaffImage",
-        "newimg" : "$newimg",
+        "newimg" : newimg,
         "newusrcode" : "1",
-        "phone" : "$usrStaffPhone",
-        "name" : "$usrStaffName",
-        "addr" : "$usrStaffAddr",
-        "addr2" : "$usrStaffAddr2",
-        "city" : "$usrStaffCity",
-        "zip" : "$usrStaffZip",
-        "state" : "$usrStaffState",
-        "country" : "$usrStaffCountry",
+        "phone" : usrStaffPhone,
+        "name" : usrStaffName,
+        "addr" : usrStaffAddr,
+        "addr2" : usrStaffAddr2,
+        "city" : usrStaffCity,
+        "zip" : usrStaffZip,
+        "state" : usrStaffState,
+        "country" : usrStaffCountry,
         "active" : (usrActive > 0)? '1' : '0',
         "is_pos" : (usrIsPos > 0)? '1' : '0',
         "is_inv" : (usrIsInv > 0)? '1' : '0',
@@ -550,7 +547,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
   }
 
   Container buildUserCodeFormField() {
-    usrcodeCtler.value = new TextEditingController.fromValue(new TextEditingValue(text: (usrCode.isNotEmpty)? usrCode: '')).value;
+    usrcodeCtler.value = TextEditingController.fromValue(TextEditingValue(text: (usrCode.isNotEmpty)? usrCode: '')).value;
     return Container(
       height: defTxtInpHeight,
       width: defTxtInpWidth,
@@ -566,16 +563,16 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             onSaved: (newValue) => usrCode = newValue!,
             onChanged: (value) {
               usrCode = value;
-              return null;
+              return;
             },
             validator: (value) {
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblUserCode,
               hintText: hintUserCode,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
             ),
             readOnly: true,
             controller: usrcodeCtler,
@@ -585,7 +582,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
   }
 
   Container buildStoreCodeFormField() {
-    storecodeCtler.value = new TextEditingController.fromValue(new TextEditingValue(text: (storeCode.isNotEmpty)? storeCode: '')).value;
+    storecodeCtler.value = TextEditingController.fromValue(TextEditingValue(text: (storeCode.isNotEmpty)? storeCode: '')).value;
     return Container(
       height: defTxtInpHeight,
       width: defTxtInpWidth,
@@ -601,16 +598,16 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
           onSaved: (newValue) => storeCode = newValue!,
           onChanged: (value) {
             storeCode = value;
-            return null;
+            return;
           },
           validator: (value) {
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStoreCode,
             hintText: hintStoreCode,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
           ),
           readOnly: true,
           controller: storecodeCtler,
@@ -643,7 +640,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
               removeError(error: kUserNameNullError);
               saveUserName(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -653,11 +650,11 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblUserName,
             hintText: hintUserName,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
           ),
           initialValue: usrName,
         ),
@@ -689,7 +686,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             if (value.isNotEmpty) {
               savePassCode(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -697,11 +694,11 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblPassCode,
             hintText: hintInitPassCode,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
           ),
           initialValue: usrPassCode,
         ),
@@ -732,7 +729,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             if (value.isNotEmpty) {
               saveStaffName(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -740,11 +737,11 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStaffName,
             hintText: hintStaffName,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
           ),
           initialValue: usrStaffName,
         ),
@@ -775,7 +772,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             if (value.isNotEmpty) {
               saveStaffPhone(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -783,11 +780,11 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStaffPhone,
             hintText: hintStaffPhone,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
           ),
           initialValue: usrStaffPhone,
         ),
@@ -819,7 +816,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             if (value.isNotEmpty) {
               addressSaved(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -827,11 +824,11 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStaffAddr,
             hintText: hintStaffAddr,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
           ),
           initialValue: usrStaffAddr,
         ),
@@ -862,7 +859,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             if (value.isNotEmpty) {
               address2Saved(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -870,11 +867,11 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStaffAddr2,
             hintText: hintStaffAddr2,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
           ),
           initialValue: usrStaffAddr2,
         ), 
@@ -905,7 +902,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             if (value.isNotEmpty) {
               staffCitySaved(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -913,11 +910,11 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStaffCity,
             hintText: hintStaffCity,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
           ),
           initialValue: usrStaffCity,
         ), 
@@ -948,7 +945,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             if (value.isNotEmpty) {
               staffZipSaved(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -956,11 +953,11 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStaffZip,
             hintText: hintStaffZip,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
           ),
           initialValue: usrStaffZip,
         ), 
@@ -991,7 +988,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             if (value.isNotEmpty) {
               staffStateSaved(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -999,11 +996,11 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStaffState,
             hintText: hintStaffState,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
           ),
           initialValue: usrStaffState,
         ), 
@@ -1034,7 +1031,7 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             if (value.isNotEmpty) {
               staffCountrySaved(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -1042,11 +1039,11 @@ class _StoreUserAddFormState extends State<StoreUserAddForm> with AfterLayoutMix
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStaffCountry,
             hintText: hintStaffCountry,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
           ),
           initialValue: usrStaffCountry,
         ), 

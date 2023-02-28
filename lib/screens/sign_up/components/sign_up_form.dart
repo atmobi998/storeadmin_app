@@ -14,6 +14,8 @@ import 'package:shopadmin_app/strconsts.dart';
 import 'package:shopadmin_app/size_config.dart';
 
 class SignUpForm extends StatefulWidget {
+  const SignUpForm({Key? key}) : super(key: key);
+
   @override
   _SignUpFormState createState() => _SignUpFormState();
 }
@@ -123,7 +125,7 @@ class _SignUpFormState extends State<SignUpForm> {
                           SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
                           showSelfImage(),
                           SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
-                          Text(poststatus, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
+                          Text(poststatus, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
                           SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
                         ],
                       ),
@@ -324,11 +326,11 @@ class _SignUpFormState extends State<SignUpForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblRePassword,
               hintText: hintRePassword,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
             ),
           ),
       ),
@@ -367,11 +369,11 @@ class _SignUpFormState extends State<SignUpForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblPassword,
               hintText: hintPassword,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
             ),
           ),
       ),
@@ -399,7 +401,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 removeError(error: kInvalidEmailError);
               }
               email = value;
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -411,11 +413,11 @@ class _SignUpFormState extends State<SignUpForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblEmail,
               hintText: hintEmail,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
             ),
           ),
       ),
@@ -440,7 +442,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 removeError(error: kAddressNullError);
               }
               address = value;
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -449,12 +451,12 @@ class _SignUpFormState extends State<SignUpForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblAddr,
               hintText: hintAddr,
               floatingLabelBehavior: FloatingLabelBehavior.always,
               suffixIcon:
-                  CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+                  const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
             ),
           ),
       ),
@@ -517,7 +519,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 removeError(error: kcountryCodeNullError);
               }
               countryName = value;
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -527,11 +529,11 @@ class _SignUpFormState extends State<SignUpForm> {
               return null;
             },
             onTap: countryPickerForCountry,
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblCountry,
               hintText: hintCountry,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/flag.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/flag.svg"),
             ),
           ),
       ),
@@ -558,7 +560,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 removeError(error: kPhoneNumberNullError);
               }
               phoneNumber = value;
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -568,11 +570,11 @@ class _SignUpFormState extends State<SignUpForm> {
               return null;
             },
             onTap: countryPickerForPhone,
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblPhoneNumber,
               hintText: hintPhoneNumber,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
               // ignore: unnecessary_null_comparison
               prefixText: (null == pickedCountry)? '' : '+' + pickedCountry!.phoneCode + '-',
             ),
@@ -598,13 +600,13 @@ class _SignUpFormState extends State<SignUpForm> {
               if (value.isNotEmpty) {
                 lastName = value;
               }
-              return null;
+              return;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblLastName,
               hintText: hintLastName,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
             ),
           ),
       ),
@@ -629,7 +631,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 removeError(error: kNamelNullError);
               }
               firstName = value;
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -638,11 +640,11 @@ class _SignUpFormState extends State<SignUpForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblFirstName,
               hintText: hintFirstName,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
             ),
           ),
       ),

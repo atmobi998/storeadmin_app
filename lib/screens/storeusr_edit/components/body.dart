@@ -6,6 +6,8 @@ import 'package:shopadmin_app/size_config.dart';
 import 'storeusr_edit_form.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -19,12 +21,12 @@ class Body extends StatelessWidget {
               children: [
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
                 Text("Store Staff", style: headingStyle),
-                Text(
+                const Text(
                   "Fill with your staff details",
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
-                StoreUserEditForm(),
+                const StoreUserEditForm(),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
               ],
             ),

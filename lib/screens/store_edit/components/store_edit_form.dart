@@ -15,6 +15,8 @@ import 'package:shopadmin_app/strconsts.dart';
 import 'package:shopadmin_app/size_config.dart';
 
 class StoreEditForm extends StatefulWidget {
+  const StoreEditForm({Key? key}) : super(key: key);
+
 
   @override
   _StoreEditFormState createState() => _StoreEditFormState();
@@ -141,7 +143,7 @@ class _StoreEditFormState extends State<StoreEditForm> {
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
               FormError(errors: errors),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges20)),
-              Text(poststatus, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
+              Text(poststatus, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges20)),
               DefaultButton(
                 text: lblSaveStore,
@@ -204,9 +206,9 @@ class _StoreEditFormState extends State<StoreEditForm> {
         "store_email": (storeEmail.isNotEmpty) ? storeEmail : '', 
         "store_phone": (storePhoneNumber.isNotEmpty) ? storePhoneNumber : '', 
         "store_fax": (storeFaxNumber.isNotEmpty) ? storeFaxNumber : '', 
-        "store_lat" : "${newlatlng.latitude.toString()}",
-        "store_lng" : "${newlatlng.longitude.toString()}",
-        "newlogo" : "$newlogo",
+        "store_lat" : newlatlng.latitude.toString(),
+        "store_lng" : newlatlng.longitude.toString(),
+        "newlogo" : newlogo,
         "logofile": (logofileName.isNotEmpty) ? logofileName : '', 
         "logo_img64" : (base64LogoImage!.isNotEmpty) ? base64LogoImage : '', 
         "newcode" : (storeNewCode)? '1' : '0',
@@ -298,7 +300,7 @@ class _StoreEditFormState extends State<StoreEditForm> {
   }
 
   getLocationAddr() {
-    txtLocTextCtlr..text = storeName + '\n' + storeAddress + '\n' + storeAddress2 ;
+    txtLocTextCtlr.text = storeName + '\n' + storeAddress + '\n' + storeAddress2 ;
   }
 
   var txtLocTextCtlr = TextEditingController();
@@ -319,20 +321,20 @@ class _StoreEditFormState extends State<StoreEditForm> {
           onTap: getLocationAddr,
           controller: txtLocTextCtlr,
           maxLines: defTxtBoxLines03,
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblMapAddr,
             hintText: hintMapAddr,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
           ),
         ),
       ),
     );
   }
 
-  var storecodeCtler = new TextEditingController();
+  var storecodeCtler = TextEditingController();
   Container buildStoreCodeFormField() {
-    storecodeCtler.value = new TextEditingController.fromValue(new TextEditingValue(text: (storeCode.isNotEmpty)? storeCode: '')).value;
+    storecodeCtler.value = TextEditingController.fromValue(TextEditingValue(text: (storeCode.isNotEmpty)? storeCode: '')).value;
     return Container(
       height: defTxtInpHeight,
       width: defTxtInpWidth,
@@ -348,16 +350,16 @@ class _StoreEditFormState extends State<StoreEditForm> {
           onSaved: (newValue) => storeCode = newValue!,
           onChanged: (value) {
             storeCode = value;
-            return null;
+            return;
           },
           validator: (value) {
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStoreCode,
             hintText: hintStoreCode,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
           ),
           readOnly: true,
           controller: storecodeCtler,
@@ -388,16 +390,16 @@ class _StoreEditFormState extends State<StoreEditForm> {
           onSaved: (newValue) => currency = newValue!,
           onChanged: (value) {
             currency = value;
-            return null;
+            return;
           },
           validator: (value) {
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblCurrency,
             hintText: hintCurrency,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/dollar-sign.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/dollar-sign.svg"),
           ),
           initialValue: (admcurstore.isNotEmpty)? admcurstore.first.currency : "",
         ),
@@ -423,7 +425,7 @@ class _StoreEditFormState extends State<StoreEditForm> {
               removeError(error: kStorenameNullError);
               saveStoreName(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -432,11 +434,11 @@ class _StoreEditFormState extends State<StoreEditForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStoreName,
             hintText: hintStoreName,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
           ),
           initialValue: (admcurstore.isNotEmpty)? admcurstore.first.storename : "",
         ),
@@ -469,7 +471,7 @@ class _StoreEditFormState extends State<StoreEditForm> {
               removeError(error: kStoreaddressNullError);
               addressSaved(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -478,11 +480,11 @@ class _StoreEditFormState extends State<StoreEditForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStoreAddr,
             hintText: hintStoreAddr,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
           ),
           initialValue: (admcurstore.isNotEmpty)? admcurstore.first.storeaddr : "",
         ),
@@ -514,7 +516,7 @@ class _StoreEditFormState extends State<StoreEditForm> {
             if (value.isNotEmpty) {
               address2Saved(value);
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -522,11 +524,11 @@ class _StoreEditFormState extends State<StoreEditForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStoreAddr2,
             hintText: hintStoreAddr2,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
           ),
           initialValue: (admcurstore.isNotEmpty)? admcurstore.first.storeaddr2 : "",
         ), 
@@ -553,7 +555,7 @@ class _StoreEditFormState extends State<StoreEditForm> {
               removeError(error: kstorePhNbrNullError);
               storePhoneNumber = value;
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -562,11 +564,11 @@ class _StoreEditFormState extends State<StoreEditForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStorePhone,
             hintText: hintStorePhone,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
           ),
           initialValue: (admcurstore.isNotEmpty)? admcurstore.first.storephone : "",
         ),
@@ -593,7 +595,7 @@ class _StoreEditFormState extends State<StoreEditForm> {
               removeError(error: kstoreFaxNbrNullError);
               storeFaxNumber = value;
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -602,11 +604,11 @@ class _StoreEditFormState extends State<StoreEditForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStoreFax,
             hintText: hintStoreFax,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
           ),
           initialValue: (admcurstore.isNotEmpty)? admcurstore.first.storefax : "",
         ),
@@ -635,7 +637,7 @@ class _StoreEditFormState extends State<StoreEditForm> {
               removeError(error: kInvalidEmailError);
             }
             storeEmail = value;
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -647,11 +649,11 @@ class _StoreEditFormState extends State<StoreEditForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStoreEmail,
             hintText: hintStoreEmai,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
           ),
           initialValue: (admcurstore.isNotEmpty)? admcurstore.first.storeemail : "",
         ),

@@ -8,6 +8,8 @@ import 'package:shopadmin_app/strconsts.dart';
 
 
 class StoreUserListView extends StatefulWidget {
+  const StoreUserListView({Key? key}) : super(key: key);
+
 
   @override
   _StorePosListView createState() => _StorePosListView();
@@ -56,7 +58,7 @@ class StoreUserListView extends StatefulWidget {
   
   ListTile _tile(int storeposid, String title, String subtitle, String imgpath, IconData icon) => ListTile(
     title: Text(title,
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: 20,
         )),
