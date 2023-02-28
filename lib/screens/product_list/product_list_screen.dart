@@ -7,6 +7,8 @@ import 'components/body.dart';
 
 class ProductListScreen extends StatelessWidget {
   static String routeName = "/product_list";
+
+  const ProductListScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -16,8 +18,8 @@ class ProductListScreen extends StatelessWidget {
         title: Text( tmpcatname ),
         automaticallyImplyLeading: false,
       ),
-      body: ProductsListBody(),
-      bottomNavigationBar: BottomNavBarProductList(selectedMenu: StoreMenuState.none),
+      body: const ProductsListBody(),
+      bottomNavigationBar: const BottomNavBarProductList(selectedMenu: StoreMenuState.none),
     );
   }
 }

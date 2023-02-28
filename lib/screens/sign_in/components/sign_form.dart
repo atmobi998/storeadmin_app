@@ -18,6 +18,8 @@ import 'package:flutter_keychain/flutter_keychain.dart';
 import 'package:firebase_phone_auth_handler/firebase_phone_auth_handler.dart';
 
 class SignForm extends StatefulWidget {
+  const SignForm({Key? key}) : super(key: key);
+
   @override
   _SignFormState createState() => _SignFormState();
 }
@@ -130,8 +132,8 @@ class _SignFormState extends State<SignForm> with AfterLayoutMixin<SignForm> {
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
               buildPasswordFormField(),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
-              needFBaseVerify ? buildVerifyFireBase() : SizedBox.shrink(),
-              Text(poststatus, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12.0)),
+              needFBaseVerify ? buildVerifyFireBase() : const SizedBox.shrink(),
+              Text(poststatus, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 12.0)),
               Container(
                 alignment: Alignment.center,
                 width: defTxtInpMaxWidth,
@@ -147,13 +149,13 @@ class _SignFormState extends State<SignForm> with AfterLayoutMixin<SignForm> {
                       },
                     ),
                     Text(lblRememberMe),
-                    Spacer(),
+                    const Spacer(),
                     GestureDetector(
                       onTap: () => Navigator.pushNamed(
                           context, ForgotPasswordScreen.routeName),
                       child: Text(
                         lblForgotPassword,
-                        style: TextStyle(decoration: TextDecoration.underline),
+                        style: const TextStyle(decoration: TextDecoration.underline),
                       ),
                     )
                   ],
@@ -173,8 +175,8 @@ class _SignFormState extends State<SignForm> with AfterLayoutMixin<SignForm> {
                         scanLoginBarcode();
                       },
                     ),
-                    Text(lblScanPass, style: TextStyle(decoration: TextDecoration.underline)),
-                    Spacer(),
+                    Text(lblScanPass, style: const TextStyle(decoration: TextDecoration.underline)),
+                    const Spacer(),
                     DefButton150(
                       text: lblContinue,
                       press: () {
@@ -229,13 +231,13 @@ class _SignFormState extends State<SignForm> with AfterLayoutMixin<SignForm> {
 
   doLogin() {
     var postdata = {
-        "username": "$emailphone",
-        "password": "$password",
-        "mobapp" : "$mobAppVal",
-        "token" : "$logintoken",
-        "pn_verify" : "$loginVerify",
-        "fbaseuserid" : "$fbaseuserid",
-        "fbaseusercreds" : "$fbaseusercreds",
+        "username": emailphone,
+        "password": password,
+        "mobapp" : mobAppVal,
+        "token" : logintoken,
+        "pn_verify" : loginVerify,
+        "fbaseuserid" : fbaseuserid,
+        "fbaseusercreds" : fbaseusercreds,
       };
     var posthdr = {
         'Accept': 'application/json',
@@ -304,7 +306,7 @@ class _SignFormState extends State<SignForm> with AfterLayoutMixin<SignForm> {
               removeError(error: kPassNullError);
             }
             password = value;
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -313,11 +315,11 @@ class _SignFormState extends State<SignForm> with AfterLayoutMixin<SignForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblPasswordText,
             hintText: hintPasswordText,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
           ),
         ),
       ),
@@ -344,7 +346,7 @@ class _SignFormState extends State<SignForm> with AfterLayoutMixin<SignForm> {
               removeError(error: kPhoneNumberNullError);
               emailphone = value;
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -353,11 +355,11 @@ class _SignFormState extends State<SignForm> with AfterLayoutMixin<SignForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblLoginPhoneText,
             hintText: hintLoginPhoneText,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
           ),
         ),
       ),
@@ -413,7 +415,7 @@ class _SignFormState extends State<SignForm> with AfterLayoutMixin<SignForm> {
                               }
                             }
                           }
-                          return null;
+                          return;
                         },
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -422,11 +424,11 @@ class _SignFormState extends State<SignForm> with AfterLayoutMixin<SignForm> {
                           }
                           return null;
                         },
-                        decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+                        decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
                           labelText: lblPhoneVerifyText,
                           hintText: hintPhoneVerifyText,
                           floatingLabelBehavior: FloatingLabelBehavior.always,
-                          suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
+                          suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
                         ),
                       ),
                     ),

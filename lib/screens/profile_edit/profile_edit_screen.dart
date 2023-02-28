@@ -4,6 +4,8 @@ import 'components/body.dart';
 
 class ProfileEditScreen extends StatelessWidget {
   static String routeName = "/profile_edit";
+
+  const ProfileEditScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -11,7 +13,7 @@ class ProfileEditScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(txtOwnerProfile),
       ),
-      body: Body(),
+      body: const Body(),
     );
   }
 }

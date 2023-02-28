@@ -6,6 +6,8 @@ import 'components/body.dart';
 
 class CategoryListScreen extends StatelessWidget {
   static String routeName = "/category_list";
+
+  const CategoryListScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -15,7 +17,7 @@ class CategoryListScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       body: CategoriesListBody(),
-      bottomNavigationBar: BottomNavBarCategoryList(selectedMenu: StoreMenuState.none),
+      bottomNavigationBar: const BottomNavBarCategoryList(selectedMenu: StoreMenuState.none),
     );
   }
 }

@@ -6,6 +6,8 @@ import 'package:shopadmin_app/size_config.dart';
 import 'complete_profile_form.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -22,9 +24,9 @@ class Body extends StatelessWidget {
                 Text(txtCompProfile, style: headingStyle),
                 Text(txtYourFirstStore,textAlign: TextAlign.center,),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
-                CompleteProfileForm(),
+                const CompleteProfileForm(),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
-                Text(txtAgree,textAlign: TextAlign.center,style: Theme.of(context).textTheme.caption,),
+                Text(txtAgree,textAlign: TextAlign.center,style: Theme.of(context).textTheme.bodySmall,),
               ],
             ),
           ),

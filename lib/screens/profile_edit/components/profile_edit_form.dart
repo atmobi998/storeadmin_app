@@ -20,6 +20,8 @@ import 'package:shopadmin_app/size_config.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 
 class ProfileEditForm extends StatefulWidget {
+  const ProfileEditForm({Key? key}) : super(key: key);
+
   @override
   _ProfileEditFormState createState() => _ProfileEditFormState();
 }
@@ -161,7 +163,7 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
               FormError(errors: errors),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
-              Text(poststatus, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
+              Text(poststatus, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges20)),
               DefaultButton(
                 text: txtSaveAndStores,
@@ -203,8 +205,8 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
 
   doProfileEdit() {
     setStatus(txtSavingAcct);
-    var logofileName;
-    var newlogo;
+    String logofileName;
+    String newlogo;
     if (picklogo) {
       newlogo = '1';
       logofileName = tmplogoFile!.path.split('/').last;
@@ -213,8 +215,8 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
       logofileName='';
       base64LogoImage='';
     }
-    var selffileName;
-    var newself;
+    String selffileName;
+    String newself;
     if (pickself) {
       newself = '1';
       selffileName = tmpselfFile!.path.split('/').last;
@@ -238,8 +240,8 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
         "name" : firstName + ' ' + lastName,
         "phone" : phoneNumber,
         "address" : address,
-        "newlogo" : "$newlogo",
-        "newself" : "$newself",
+        "newlogo" : newlogo,
+        "newself" : newself,
         "mobapp" : 'storeadmin_app',
       };
     var posthdr = {
@@ -346,6 +348,7 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
 
   printAdminAccessCode() {
     final printttf = pw.Font.ttf(printfont!);
+    // ignore: unnecessary_new
     doc = new pw.Document();
     var bcsvg = buildBarcode(Barcode.qrCode(),stringToBase64.encode(DateTime.now().toIso8601String()+'|||'+phoneCode+phoneNumber+'|||'+verifypasswordDB));
     doc.addPage(pw.Page(
@@ -481,11 +484,11 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblRePassword,
               hintText: hintPasswordNC,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
             ),
             initialValue: verifypassword,
           ),
@@ -520,11 +523,11 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblPassword,
               hintText: hintPasswordNC,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
             ),
             initialValue: password,
           ),
@@ -553,7 +556,7 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
                 removeError(error: kInvalidEmailError);
               }
               email = value;
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -565,11 +568,11 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblEmail,
               hintText: hintEmail,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
             ),
             initialValue: email,
           ),
@@ -595,7 +598,7 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
                 removeError(error: kAddressNullError);
               }
               address = value;
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -604,12 +607,12 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblAddr,
               hintText: hintAddr,
               floatingLabelBehavior: FloatingLabelBehavior.always,
               suffixIcon:
-                  CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+                  const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
             ),
             initialValue: address,
           ),
@@ -634,16 +637,16 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
             onSaved: (newValue) => countryName = newValue!,
             onChanged: (value) {
               countryName = value;
-              return null;
+              return;
             },
             validator: (value) {
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblCountry,
               hintText: hintCountry,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/flag.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/flag.svg"),
             ),
             initialValue: countryName,
           ),
@@ -671,7 +674,7 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
                 removeError(error: kPhoneNumberNullError);
               }
               phoneNumber = value;
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -680,11 +683,11 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblPhoneNumber,
               hintText: hintPhoneNumber,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
               prefixText: (phoneCode.isEmpty)? '' : phoneCode ,
             ),
             initialValue: phoneNumber,
@@ -710,13 +713,13 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
             if (value.isNotEmpty) {
               lastName = value;
             }
-            return null;
+            return;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblLastName,
             hintText: hintLastName,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
           ),
           initialValue: lastName,
         )
@@ -742,7 +745,7 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
                 removeError(error: kNamelNullError);
               }
               firstName = value;
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -751,11 +754,11 @@ class _ProfileEditFormState extends State<ProfileEditForm> with AfterLayoutMixin
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblFirstName,
               hintText: hintFirstName,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
             ),
             initialValue: firstName,
           ),

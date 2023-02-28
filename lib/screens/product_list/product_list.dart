@@ -56,6 +56,8 @@ class Product {
 }
 
 class ProductsListView extends StatefulWidget {
+  const ProductsListView({Key? key}) : super(key: key);
+
   
   @override
   _ProductsListView createState() => _ProductsListView();
@@ -142,6 +144,7 @@ class ProductsListView extends StatefulWidget {
           "mobapp" : mobAppVal,
           "cat_id": "$admcurcatid",
           "store_id" : "$admcurstoreid",
+          // ignore: unnecessary_string_interpolations
           "filter" : "$admcurprodsearch",
         };
       var posthdr = {
@@ -153,6 +156,7 @@ class ProductsListView extends StatefulWidget {
       if (response.statusCode == 200) {
         Map<String, dynamic> alljsonResponse = json.decode(response.body);
         List jsonResponse = alljsonResponse['data'];
+        // ignore: unnecessary_new
         return jsonResponse.map((product) => new Product.fromJson(product)).toList();
       } else {
         throw Exception(kProdAPIErr);

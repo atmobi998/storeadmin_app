@@ -13,6 +13,8 @@ import 'package:shopadmin_app/screens/sign_in/sign_in_screen.dart';
 import 'package:shopadmin_app/size_config.dart';
 
 class CompleteProfileForm extends StatefulWidget {
+  const CompleteProfileForm({Key? key}) : super(key: key);
+
   @override
   _CompleteProfileFormState createState() => _CompleteProfileFormState();
 }
@@ -79,18 +81,18 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                 onPressed: chooseImageLogo, 
                 child: Text(
                   lblPickStoreLogo, 
-                  textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18.0)
+                  textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 18.0)
                   )
               ),
               SizedBox(
                 height: getProportionateScreenHeight(300),
                 child: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
-                          SizedBox(height: 20.0),
+                          const SizedBox(height: 20.0),
                           showLogoImage(),
-                          SizedBox(height: 20.0),
-                          Text(poststatus, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
-                          SizedBox(height: 20.0),
+                          const SizedBox(height: 20.0),
+                          Text(poststatus, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
+                          const SizedBox(height: 20.0),
                         ],
                       ),
               ),
@@ -217,7 +219,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
               removeError(error: kStorenameNullError);
               storeName = value;
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -226,11 +228,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblStoreName,
             hintText: hintStoreName,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
           ),
         ),
       ),
@@ -255,7 +257,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                 removeError(error: kStoreaddressNullError);
                 storeAddress = value;
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -264,11 +266,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblStoreAddr,
               hintText: hintStoreAddr,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
             ),
           ),
       ),
@@ -292,7 +294,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
               if (value.isNotEmpty) {
                 storeAddress2 = value;
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -300,11 +302,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblStoreAddr2,
               hintText: hintStoreAddr2,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
             ),
           ),
       ),
@@ -330,7 +332,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                 removeError(error: kstorePhNbrNullError);
                 storePhoneNumber = value;
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -339,11 +341,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblStorePhone,
               hintText: hintStorePhone,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
             ),
           ),
       ),
@@ -369,7 +371,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                 removeError(error: kstoreFaxNbrNullError);
                 storeFaxNumber = value;
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -378,11 +380,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblStoreFax,
               hintText: hintStoreFax,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
             ),
           ),
       ),
@@ -410,7 +412,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                 removeError(error: kInvalidEmailError);
               }
               storeEmail = value;
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -422,11 +424,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblStoreEmail,
               hintText: hintStoreEmai,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
             ),
           ),
       ),

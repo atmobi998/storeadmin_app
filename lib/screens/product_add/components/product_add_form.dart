@@ -16,6 +16,8 @@ import 'package:shopadmin_app/strconsts.dart';
 import 'package:shopadmin_app/size_config.dart';
 
 class ProductAddForm extends StatefulWidget {
+  const ProductAddForm({Key? key}) : super(key: key);
+
   @override
   _ProductAddFormState createState() => _ProductAddFormState();
 }
@@ -155,7 +157,7 @@ class _ProductAddFormState extends State<ProductAddForm> {
                       ),
               ),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
-              Text(poststatus, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
+              Text(poststatus, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0)),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
               FormError(errors: errors),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
@@ -298,8 +300,8 @@ class _ProductAddFormState extends State<ProductAddForm> {
             onChanged: (value) => setStatusA(value!),
             subtitle: !curprodactive
               ? Padding(
-                  padding: EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
-                  child: Text(txtChkActive, style: TextStyle(color: Color(0xFFe53935), fontSize: 12),),)
+                  padding: const EdgeInsets.fromLTRB(12.0, 0, 0, 0), 
+                  child: Text(txtChkActive, style: const TextStyle(color: Color(0xFFe53935), fontSize: 12),),)
               : null,
           ),
       ),
@@ -349,25 +351,25 @@ class _ProductAddFormState extends State<ProductAddForm> {
 
     var postdata = {
         "store_id" : (admcurstore.isNotEmpty)? "${admcurstore.first.id}" : "0", 
-        "store_name" : (admcurstore.isNotEmpty)? "${admcurstore.first.storename}" : '', 
+        "store_name" : (admcurstore.isNotEmpty)? admcurstore.first.storename : '', 
         "cat_id" : (admcurcatid>0) ? '$admcurcatid' : '', 
-        "cat_name" : (admcurcat.isNotEmpty) ? '${admcurcat.first.catname}' : '', 
-        "name" : (prodname.isNotEmpty) ? '$prodname' : '',
-        "slug" : (prodslug.isNotEmpty) ? '$prodslug' : '', 
-        "description" : (proddesc.isNotEmpty) ? '$proddesc' : '', 
-        "sort" : (prodsort.isNotEmpty) ? '$prodsort' : '', 
+        "cat_name" : (admcurcat.isNotEmpty) ? admcurcat.first.catname : '', 
+        "name" : (prodname.isNotEmpty) ? prodname : '',
+        "slug" : (prodslug.isNotEmpty) ? prodslug : '', 
+        "description" : (proddesc.isNotEmpty) ? proddesc : '', 
+        "sort" : (prodsort.isNotEmpty) ? prodsort : '', 
         "active" : '1', 
-        "taxrate" : (prodtaxrate.isNotEmpty) ? '$prodtaxrate' : '', 
-        "pricesell" : (prodpricesell.isNotEmpty) ? '$prodpricesell' : '', 
-        "pricebuy" : (prodpricebuy.isNotEmpty) ? '$prodpricebuy' : '', 
+        "taxrate" : (prodtaxrate.isNotEmpty) ? prodtaxrate : '', 
+        "pricesell" : (prodpricesell.isNotEmpty) ? prodpricesell : '', 
+        "pricebuy" : (prodpricebuy.isNotEmpty) ? prodpricebuy : '', 
         "suppl_id" : '0',
-        "newimga" : "$newimga",
+        "newimga" : newimga,
         "imgafile": imgafileName,
         "imga_img64" : base64ImgaImage,
-        "newimgb" : "$newimgb",
+        "newimgb" : newimgb,
         "imgbfile": imgbfileName,
         "imgb_img64" : base64ImgbImage,
-        "newimgc" : "$newimgc",
+        "newimgc" : newimgc,
         "imgcfile": imgcfileName,
         "imgc_img64" : base64ImgcImage,
       };
@@ -463,7 +465,7 @@ syncProdList(Product fromProd, int toProdIdx) {
                 removeError(error: kProdNameNullErr);
                 saveProdName(value);
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -472,11 +474,11 @@ syncProdList(Product fromProd, int toProdIdx) {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblProdName,
               hintText: hintProdName,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
             ),
             initialValue: prodname,
           ),
@@ -503,7 +505,7 @@ syncProdList(Product fromProd, int toProdIdx) {
               removeError(error: kProdDescNullErr);
               proddesc = value;
             }
-            return null;
+            return;
           },
           validator: (value) {
             if (value!.isEmpty) {
@@ -512,11 +514,11 @@ syncProdList(Product fromProd, int toProdIdx) {
             }
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
             labelText: lblProdDesc,
             hintText: hintProdDesc,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
+            suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
           ),
           initialValue: proddesc,
         ),
@@ -545,7 +547,7 @@ syncProdList(Product fromProd, int toProdIdx) {
                 removeError(error: kProdSlugNullErr);
                 prodslug = value;
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -554,11 +556,11 @@ syncProdList(Product fromProd, int toProdIdx) {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblProdSlug,
               hintText: hintProdSlug,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/TextIcon.svg"),
             ),
           ),
       ),
@@ -584,7 +586,7 @@ syncProdList(Product fromProd, int toProdIdx) {
                 removeError(error: kProdSortNullErr);
                 prodsort = value;
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -593,11 +595,11 @@ syncProdList(Product fromProd, int toProdIdx) {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblProdSort,
               hintText: hintProdSort,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/sort-numeric-down.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/sort-numeric-down.svg"),
             ),
             
             initialValue: prodsort,
@@ -625,7 +627,7 @@ syncProdList(Product fromProd, int toProdIdx) {
                 removeError(error: kProdTaxNullErr);
                 prodtaxrate = value;
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -634,11 +636,11 @@ syncProdList(Product fromProd, int toProdIdx) {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblTaxrate,
               hintText: hintTaxrate,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Cash.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Cash.svg"),
             ),
             
             initialValue: prodtaxrate,
@@ -667,7 +669,7 @@ syncProdList(Product fromProd, int toProdIdx) {
                 removeError(error: kProdSellNullErr);
                 prodpricesell = value;
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -676,11 +678,11 @@ syncProdList(Product fromProd, int toProdIdx) {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblPrice,
               hintText: hintPrice,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Cash.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Cash.svg"),
             ),
             
             initialValue: prodpricesell,
@@ -708,7 +710,7 @@ syncProdList(Product fromProd, int toProdIdx) {
                 removeError(error: kProdBuyNullErr);
                 prodpricebuy = value;
               }
-              return null;
+              return;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -717,11 +719,11 @@ syncProdList(Product fromProd, int toProdIdx) {
               }
               return null;
             },
-            decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+            decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
               labelText: lblBuyPrice,
               hintText: hintBuyPrice,
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Cash.svg"),
+              suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Cash.svg"),
             ),
             
             initialValue: prodpricebuy,

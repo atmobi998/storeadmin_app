@@ -9,13 +9,14 @@ import 'package:shopadmin_app/constants.dart';
 import 'package:shopadmin_app/strconsts.dart';
 import 'package:shopadmin_app/size_config.dart';
 // import 'package:pdf/pdf.dart';
-import 'dart:typed_data';
 // import 'package:pdf/widgets.dart' as pw;
 // import 'package:printing/printing.dart';
 // import 'package:audiofileplayer/audiofileplayer.dart';
 
 
 class CategoriesListBody extends StatefulWidget {
+  const CategoriesListBody({Key? key}) : super(key: key);
+
 
   @override
   _CategoriesListBody createState() => _CategoriesListBody();
@@ -48,7 +49,7 @@ class _CategoriesListBody extends State<CategoriesListBody> with AfterLayoutMixi
                         padding:
                             EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(defFormFieldEdges05)),
                         child: SingleChildScrollView(
-                          physics: ScrollPhysics(),
+                          physics: const ScrollPhysics(),
                           child: Column(
                             children: [
                               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
@@ -69,7 +70,7 @@ class _CategoriesListBody extends State<CategoriesListBody> with AfterLayoutMixi
                         padding:
                             EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(defFormFieldEdges05)),
                         child: SingleChildScrollView(
-                          physics: ScrollPhysics(),
+                          physics: const ScrollPhysics(),
                           child: productsListBody(),
                         ),
                       ),
@@ -89,11 +90,6 @@ class _CategoriesListBody extends State<CategoriesListBody> with AfterLayoutMixi
     timerProdUpd?.cancel();
     timerCatUpd?.cancel();
     super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 
   @override
@@ -150,7 +146,7 @@ class _CategoriesListBody extends State<CategoriesListBody> with AfterLayoutMixi
         "mobapp" : mobAppVal,
         "qrymode" : "all",
         "store_id" : "$admcurstoreid", 
-        "filter" : "$admcurcatsearch", 
+        "filter" : admcurcatsearch, 
       };
     var posthdr = {
         'Accept': 'application/json',
@@ -220,7 +216,7 @@ syncProdList(Product fromProd, int toProdIdx) {
         "qrymode": 'allbystore',
         "mobapp" : mobAppVal,
         "store_id" : "$admcurstoreid",
-        "filter" : "$admcurprodsearch",
+        "filter" : admcurprodsearch,
       };
     var posthdr = {
         'Accept': 'application/json',
@@ -324,7 +320,7 @@ syncProdList(Product fromProd, int toProdIdx) {
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(defFormFieldEdges05)),
           child: SingleChildScrollView(
-            physics: ScrollPhysics(),
+            physics: const ScrollPhysics(),
             child: Column(
               children: [
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges01)),
@@ -422,12 +418,12 @@ syncProdList(Product fromProd, int toProdIdx) {
           onChanged: (value) {
             admcurprodsearch = value;
             setProdSearch(value);
-            return null;
+            return;
           },
           validator: (value) {
             return null;
           },
-          decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+          decoration: const InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
             labelText: "Search",
             hintText: "Text to filter",
             floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -465,12 +461,12 @@ syncProdList(Product fromProd, int toProdIdx) {
         onChanged: (value) {
           admcurcatsearch = value;
           setCatSearch(value);
-          return null;
+          return;
         },
         validator: (value) {
           return null;
         },
-        decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+        decoration: const InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
           labelText: "Search",
           hintText: "Text to filter",
           floatingLabelBehavior: FloatingLabelBehavior.always,

@@ -25,7 +25,7 @@ class Body extends StatelessWidget {
                 Text(txtCatUpdate, style: headingStyle),
                 Text(txtFillCatDet,textAlign: TextAlign.center,),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
-                CategoryEditForm(),
+                const CategoryEditForm(),
                 SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
               ],
             ),

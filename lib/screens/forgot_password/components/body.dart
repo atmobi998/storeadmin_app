@@ -11,6 +11,8 @@ import 'package:shopadmin_app/constants.dart';
 import 'package:shopadmin_app/strconsts.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     gtextTranslate(context);
@@ -36,7 +38,7 @@ class Body extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges10)),
-              ForgotPassForm(),
+              const ForgotPassForm(),
             ],
           ),
         ),
@@ -46,6 +48,8 @@ class Body extends StatelessWidget {
 }
 
 class ForgotPassForm extends StatefulWidget {
+  const ForgotPassForm({Key? key}) : super(key: key);
+
   @override
   _ForgotPassFormState createState() => _ForgotPassFormState();
 }
@@ -97,7 +101,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
                         });
                         setPhoneNbr(value);
                       }
-                      return null;
+                      return;
                     },
                     validator: (value) {
                       if (value!.isEmpty && !errors.contains(kPhoneNumberNullError)) {
@@ -107,11 +111,11 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
                       } 
                       return null;
                     },
-                    decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+                    decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
                       labelText: lblPhoneNumber,
                       hintText: hintLoginPhoneText,
                       floatingLabelBehavior: FloatingLabelBehavior.always,
-                      suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
+                      suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
                     ),
                   ),
                 ),
@@ -136,7 +140,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
                         });
                       }
                       setResetCode(value);
-                      return null;
+                      return;
                     },
                     validator: (value) {
                       if (value!.isEmpty && !errors.contains(hintPhoneVerifyErr)) {
@@ -146,11 +150,11 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
                       } 
                       return null;
                     },
-                    decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+                    decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
                       labelText: lblPhoneVerifyText,
                       hintText: hintPhoneVerifyText,
                       floatingLabelBehavior: FloatingLabelBehavior.always,
-                      suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+                      suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
                     ),
                   ),
                 ),
@@ -194,11 +198,11 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
                       }
                       return null;
                     },
-                    decoration: InputDecoration(counterText: ' ', counterStyle: TextStyle(fontSize: 0), helperStyle: TextStyle(fontSize: 0), errorStyle: TextStyle(fontSize: 0),
+                    decoration: InputDecoration(counterText: ' ', counterStyle: const TextStyle(fontSize: 0), helperStyle: const TextStyle(fontSize: 0), errorStyle: const TextStyle(fontSize: 0),
                       labelText: lblNewPassword,
                       hintText: hintNewPassword,
                       floatingLabelBehavior: FloatingLabelBehavior.always,
-                      suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+                      suffixIcon: const CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
                     ),
                   ),
                 ),
@@ -223,7 +227,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
                 },
               ),
               SizedBox(height: getProportionateScreenHeight(defFormFieldEdges30)),
-              NoAccountText(),
+              const NoAccountText(),
             ],
           ),
         ),
@@ -252,7 +256,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
     forgotqrya() {
       var postdata = {
           "step": "$resetstep",
-          "phonenbr": "$phonenbr",
+          "phonenbr": phonenbr,
           "mobapp" : mobAppVal,
         };
       var posthdr = {
@@ -280,9 +284,9 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
     forgotqryb() {
       var postdata = {
           "step": "$resetstep",
-          "phonenbr": "$phonenbr",
-          "token": "$forgotsess",
-          "resetcode": "$resetcode",
+          "phonenbr": phonenbr,
+          "token": forgotsess,
+          "resetcode": resetcode,
           "mobapp" : mobAppVal,
         };
       var posthdr = {
@@ -316,10 +320,10 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
     forgotqryc() {
       var postdata = {
           "step": "$resetstep",
-          "phonenbr": "$phonenbr",
-          "token": "$forgotsess",
-          "resetcode": "$resetcode",
-          "password": "$password",
+          "phonenbr": phonenbr,
+          "token": forgotsess,
+          "resetcode": resetcode,
+          "password": password,
           "mobapp" : mobAppVal,
         };
       var posthdr = {
