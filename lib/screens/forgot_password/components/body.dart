@@ -329,7 +329,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
       var posthdr = {
           'Accept': 'application/json',
           };
-      print(postdata);
+      // print(postdata);
       http.post(
           forgotqryEndPoint, 
           body: postdata,
@@ -337,7 +337,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
         ).then((result) {
             if (result.statusCode == 200) {
               var resary = jsonDecode(result.body);
-              print(resary);
+              // print(resary);
               setState(() {
                 if (resary['data'] == 'Changed') {
                   Navigator.pushNamed(context, SignInScreen.routeName);

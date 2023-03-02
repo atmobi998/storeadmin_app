@@ -444,7 +444,7 @@ class _SignFormState extends State<SignForm> with AfterLayoutMixin<SignForm> {
               doLogin();
           },
           onLoginFailed: (authException) {
-            print("An error occurred: ${authException.message}");
+            // print("An error occurred: ${authException.message}");
           },
         ),
       ),

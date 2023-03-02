@@ -70,11 +70,11 @@ class _StoreEditFormState extends State<StoreEditForm> {
   }
 
   void logError(error) {
-    print(error);
+    // print(error);
   }
 
   void logMessage(String message) {
-    print(message);
+    // print(message);
   }
 
   @override

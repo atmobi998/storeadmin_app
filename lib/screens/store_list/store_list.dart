@@ -78,11 +78,11 @@ class StoresListView extends StatefulWidget {
   }
 
   void logError(error) {
-    print(error);
+    // print(error);
   }
 
   void logMessage(String message) {
-    print(message);
+    // print(message);
   }
 
   getuserPosition() async {

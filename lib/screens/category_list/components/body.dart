@@ -122,11 +122,11 @@ class _CategoriesListBody extends State<CategoriesListBody> with AfterLayoutMixi
   }
 
   void logError(error) {
-    print(error);
+    // print(error);
   }
 
   void logMessage(String message) {
-    print(message);
+    // print(message);
   }
 
   syncCatsList(Category fromCat, int toCatIdx) {
