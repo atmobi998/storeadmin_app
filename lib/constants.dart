@@ -91,7 +91,7 @@ double defUIsize12 = getProportionateScreenHeight(12);
 double defUIsize11 = getProportionateScreenHeight(11);
 double defUIsize10 = getProportionateScreenHeight(10);
 
-const String kMapAPIkey = 'AIzaSyBOTARokUbwMcfHbZPoSHzTiWi8bE_umpg';
+const String kMapAPIkey = 'map key from google cloud console';
 
 bool installedSMS = true;
 
