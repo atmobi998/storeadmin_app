@@ -96,7 +96,7 @@ const String kMapAPIkey = 'map key from google cloud console';
 bool installedSMS = true;
 
 // Rest URIs
-
+// path to store backend
 const String mobAppVal = 'storeadmin_app';
 const String imagehost = (appbuildmode == 'Release')? 'https://metroeconomics.com/' : 'http://metroeconomics.com/';
 const String kapihost = (appbuildmode == 'Release')? 'https://metroeconomics.com/'  : 'http://metroeconomics.com/';
